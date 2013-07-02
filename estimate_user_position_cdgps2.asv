@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Estimates the user position using Carrier Phase D-GPS measurements       %
+%   Author: Saurav Agarwal   
+%   Email:  saurav6@gmail.com
+%   Date:   January 1, 2011  
+%   Place:  Dept. of Aerospace Engg., IIT Bombay, Mumbai, India 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function estimates the user position using Carrier Phase D-GPS measurements %
+% Author: Saurav Agarwal
+% For Carrier Phase Differential GPS%
+% Ref. "Global Positioning System: Theory and Applications Vol II, Bradford W. Parksinson, Pg 435"
+% Ref. " Global Positioning Systems: Signals, Measurements & Performance, Mishra & Enge, Ch 7" 
+
+function [user_pos_cdgps2,clk_bias_u,clk_bias_r] = estimate_user_position_cdgps2(IntegerAmbiguities,gps_sat,gps_time,visible_sats_id,ref_station_ecef,ref_station,true_user_pos_geodetic,true_user_pos_ecef, initial_user_pos_estimate, ibeacon1_geo,ibeacon1_ecef,ibeacon2_geo,ibeacon2_ecef,initial_clk_bias_u,initial_clk_bias_r);
+
+xu = initial_user_pos_estimate.x;
+yu = initial_user_pos_estimate.y;
+zu = initial_user_pos_estimate.z;
+
+deltax = 1;
+deltay = 1;
+deltaz = 1;
+
+clkbias_u = rcvr_clk_model(initial_clk_bias_u,randn);
+
+clkbias_r = rcvr_clk_model(initial_clk_bias_r,randn);
+
+while abs(deltax)>1e-2 && abs(deltay)>1e-2 && abs(deltaz) > 1e-2
+    
+    [deltaPhi,Scapk] = collect_phase_data2(gps_sat,gps_time,visible_sats_id,ref_station_ecef,ref_station,true_user_pos_geodetic,true_user_pos_ecef, initial_user_pos_estimate, ibeacon1_geo,ibeacon1_ecef,ibeacon2_geo,ibeacon2_ecef,clkbias_u,clkbias_r);
+    
+    delta_x = (Scapk'*Scapk)^-1*Scapk'*(deltaPhi - 0.19*IntegerAmbiguities');
+
+    deltax = delta_x(1);
+    deltay = delta_x(2);
+    deltaz = delta_x(3);
+
+    xu = xu + deltax;
+    yu = yu + deltay;
+    zu = zu + deltaz;
+    
+    initial_user_pos_estimate = struct('x',xu,'y',yu,'z',zu);
+
+    user_pos_cdgps2 = initial_user_pos_estimate;
+    
+end;
+
+end
+
+    
+    
+    
+    

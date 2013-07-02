@@ -1,0 +1,19 @@
+% RK4 INTEGRATION FUNCTION
+function[Xnew,DX,Acceleration_body] = integ_RK4(dt,X,dth,de,da,dr);
+
+  XA = linspace(0,0,12);
+  XB = XA;
+  [DX,Acceleration_body] = eval_state_derivative(X,dth,de,da,dr);
+  XA = DX * dt;
+  XB = X + 0.5 * XA;
+  [DX,Acceleration_body] = eval_state_derivative(XB,dth,de,da,dr);
+  Q =  DX * dt;
+  XB = X + 0.5 * Q;
+  XA = XA + 2.0 * Q;
+  [DX,Acceleration_body] = eval_state_derivative(XB,dth,de,da,dr);
+  Q = DX * dt;
+  XB = X + Q;
+  XA = XA + 2.0 * Q;
+  [DX,Acceleration_body] = eval_state_derivative(XB,dth,de,da,dr);
+  Xnew = X + (XA + DX * dt)/6.0;
+end

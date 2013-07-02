@@ -1,0 +1,43 @@
+function [pos_ac_ecef, pos_ac_geodetic,Acceleration,Velocity_ecef,AngularVelocity,Attitude,X] = FlightMech_Model(dt,X,dth,de,da,dr)
+
+if (de > 20)
+de = 20;
+elseif (de<-20)
+de = -20;
+end
+if (da > 20)
+da = 20;
+elseif (da<-20)
+da = -20;
+end
+if (dr > 20)
+dr = 20;
+elseif (dr<-20)
+dr = -20;
+end
+
+% Calculating new state by integrating
+[X,DX] = integ_RK4(dt,X,dth,de,da,dr);
+
+% Acceleration 
+Acceleration = DX(1:3); 
+
+% Euler angles array
+Attitude = X(4:6);
+
+% Angular velocity
+AngularVelocity = X(7:9); 
+
+% ECEF position
+pos_ac_ecef = struct('x',X(10),'y',X(11),'z',X(12)); 
+
+% Geodetic Position
+pos_ac_geodetic = ecef_to_latlong(pos_ac_ecef);
+
+% Velocity in ECEF Coordinates
+Velocity_ecef = DX(10:12);
+
+end
+
+
+

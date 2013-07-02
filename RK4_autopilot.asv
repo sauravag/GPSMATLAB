@@ -1,0 +1,29 @@
+% RK4 INTEGRATION FUNCTION
+function[Xnew] = RK4_autopilot(dt,X,autopilotplant)
+
+  XA = linspace(0,0,length(X));
+  XB = XA;
+  DX = acplant(X,autopilotplant);
+  XA = DX * dt;
+  XB = X + 0.5 * XA;
+  DX = acplant(X,autopilotplant);
+  Q =  DX * dt;
+  XB = X + 0.5 * Q;
+  XA = XA + 2.0 * Q;
+  DX = acplant(X,autopilotplant);
+  Q = DX * dt;
+  XB = X + Q;
+  XA = XA + 2.0 * Q;
+  DX = acplant(X,autopilotplant);
+  Xnew = X + (XA + DX * dt)/6.0;
+end
+
+function [DX] = acplant(X,Z,autopilotplant)
+H = eye(15,15); % measurement matrix
+K = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1];
+Bw = [0.0210 -0.122;0.2090 0.5300;-0.0170 0.1640;zeros(12,2)];
+[a,b,c,d] = ssdata(autopilotplant);
+size(a*X')
+DX = (a*X' + b*-[0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]*Z' + Bw*[10+randn;5+randn])';
+
+end
