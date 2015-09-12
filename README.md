@@ -32,18 +32,19 @@ Software License Agreement (BSD License)
   LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
   ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-============
+
+----------------------------------------
 GPSMATLAB
 Author: Saurav Agarwal
-============
+----------------------------------------
 MATLAB Toolbox for simulating Single/Dual Frequency GPS and Carrier Phase Differential GPS. 
 
 Contact
-============
+----------------------------------------
 Visit: http://sauravag.com
 
 References:
-============
+----------------------------------------
 1. S Agarwal and H B Hablani., “Automatic Aircraft Landing over Parabolic Trajectory using Precise GPS Measurements,” IJCA Proceedings on International Conference and workshop on Emerging Trends in Technology (ICWET) (7):38-45, 2011 
 
 2. Agarwal, S. & Hablani, H.B., “Precise Positioning Using GPS for CAT-III Aircraft Operations Using Smoothed Pseudorange Measurements,” International Conference and Workshop on Emerging Trends in Technology, February 25-26, 2011, Mumbai, India 
