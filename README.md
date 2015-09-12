@@ -1,12 +1,50 @@
+---------------------------------------
+License:
+----------------------------------------
+/*********************************************************************
+* Software License Agreement (BSD License)
+*
+*  Copyright (c) 2013, Saurav Agarwal
+*  All rights reserved.
+*
+*  Redistribution and use in source and binary forms, with or without
+*  modification, are permitted provided that the following conditions
+*  are met:
+*
+*   * Redistributions of source code must retain the above copyright
+*     notice, this list of conditions and the following disclaimer.
+*   * Redistributions in binary form must reproduce the above
+*     copyright notice, this list of conditions and the following
+*     disclaimer in the documentation and/or other materials provided
+*     with the distribution.
+*   * Neither the name of the Indian Institute of Technology, Bombay nor the names of its
+*     contributors may be used to endorse or promote products derived
+*     from this software without specific prior written permission.
+*
+*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+*  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+*  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+*  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+*  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+*  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+*  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+*  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+*  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+*  POSSIBILITY OF SUCH DAMAGE.
+*********************************************************************/
 GPSMATLAB
-=========
-
-MATLAB Toolbox for simulating Single/Dual Frequency GPS and Carrier Phase Differential GPS
-
 Author: Saurav Agarwal
+============
+MATLAB Toolbox for simulating Single/Dual Frequency GPS and Carrier Phase Differential GPS. 
 
-[Ph.D Candidate, Aerospace Engg., Texas A&M University, USA]
-[M.Sc By Research, Aerospace Engg., Cranfield University, UK]
-[B.Tech Aerospace Engg., Indian Institute of Technology, Bombay]
+Contact
+============
+Visit: http://sauravag.com
 
-Copyright 2013.
+References:
+============
+1. S Agarwal and H B Hablani., “Automatic Aircraft Landing over Parabolic Trajectory using Precise GPS Measurements,” IJCA Proceedings on International Conference and workshop on Emerging Trends in Technology (ICWET) (7):38-45, 2011 
+
+2. Agarwal, S. & Hablani, H.B., “Precise Positioning Using GPS for CAT-III Aircraft Operations Using Smoothed Pseudorange Measurements,” International Conference and Workshop on Emerging Trends in Technology, February 25-26, 2011, Mumbai, India 
